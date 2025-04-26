@@ -1,122 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta property="og:title" content="Regional Champions & DWCS record tracker">
-    <meta property="og:description" content="Tracking how Regional MMA Champions and DWCS winners perform in the UFC.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/header.png">
-    <meta property="og:url" content="https://phre2.github.io/dwcs-regional-tracker/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regional Champions & DWCS record tracker</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/icon.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffffff;
-            color: #000000;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        img.header {
-            width: 300px;
-            height: auto;
-            margin: 20px 0;
-        }
-        iframe {
-            width: 100%;
-            height: 650px;
-            border: none;
-            margin: 30px 0;
-        }
-        h2 {
-            margin-top: 50px;
-        }
-        .legend {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 5px 20px;
-            font-size: 16px;
-        }
-        .legend-color {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            border: 1px solid #000;
-        }
-        .white { background-color: white; }
-        .red { background-color: red; }
-        .green { background-color: green; }
-        .theme-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 24px;
-        }
-        a {
-            color: inherit;
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Regional Champions & DWCS Record Tracker</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/icon.png">
+
+  <!-- Meta image for social sharing (thumbnail) -->
+  <meta property="og:image" content="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/header.png">
+  <meta property="og:title" content="Regional Champions & DWCS Record Tracker">
+  <meta property="og:description" content="Tracking the UFC performance of MMA regional champions compared to DWCS contract winners.">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      background-color: #fff;
+      color: #000;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.6s ease, color 0.6s ease;
+    }
+    .container {
+      width: 95%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    iframe {
+      width: 95%;
+      height: 800px;
+      border: none;
+      margin-top: 40px;
+    }
+    .legend {
+      margin: 40px 0;
+      font-size: 16px;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .color-box {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border: 1px solid #000;
+    }
+    .contact {
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 26px;
+      padding: 10px;
+      z-index: 1000;
+      transition: color 0.6s ease;
+    }
+    .header-image {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const button = document.querySelector('.toggle-button');
+      if (body.style.backgroundColor === "white" || body.style.backgroundColor === "") {
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        button.textContent = "🌞"; // Show sun when dark mode
+      } else {
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+        button.textContent = "🌙"; // Show moon when light mode
+      }
+    }
+    window.onload = function() {
+      const button = document.querySelector('.toggle-button');
+      button.textContent = "🌙"; // Start with moon icon
+    }
+  </script>
 </head>
+
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-    <div class="container">
-        <h1>Regional Champions & DWCS record tracker</h1>
 
-        <img src="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/header.png" alt="Header" class="header">
+<button class="toggle-button" onclick="toggleMode()"></button>
 
-        <p>
-            A few years ago, I started tracking how Regional MMA Champions perform in the UFC compared to DWCS winners.  
-            This is the result. The site is completely free and available to everyone.  
-            If you like it, follow me on Twitter/X <a href="https://twitter.com/phre" target="_blank">@phre</a>!
-        </p>
+<div class="container">
+  <h1>Regional Champions & DWCS Record Tracker</h1>
 
-        <h2>Regional Champions</h2>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=1134166654&single=true"></iframe>
+  <!-- Aggiunta header qui -->
+  <img class="header-image" src="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/header.png" alt="Header Image">
 
-        <h2>DWCS</h2>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=588391191&single=true"></iframe>
+  <p style="font-size: 18px; margin-top: 10px;">
+    A few years ago, I started tracking how regional MMA champions perform in the UFC compared to Dana White's Contender Series contract winners. 
+    This is the result. The site is completely free and open for everyone. If you enjoy it, follow me on Twitter/X: 
+    <a href="https://twitter.com/phre" style="color: #1DA1F2;">@phre</a>.
+  </p>
 
-        <div class="legend">
-            <div class="legend-item"><div class="legend-color white"></div> Still in UFC</div>
-            <div class="legend-item"><div class="legend-color red"></div> No longer in UFC</div>
-            <div class="legend-item"><div class="legend-color green"></div> UFC Champion / Former Champion</div>
-        </div>
+  <h2>Regional Champions</h2>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=1134166654&single=true"></iframe>
 
-        <p>If you spot any mistakes or have suggestions, feel free to contact me on Twitter/X <a href="https://twitter.com/phre" target="_blank">@phre</a>!</p>
+  <h2>DWCS</h2>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=588391191&single=true"></iframe>
+
+  <div class="legend">
+    <h2>Legend</h2>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: white;"></div>
+      <span>Still in the UFC roster</span>
     </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: red;"></div>
+      <span>No longer in the UFC</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: green;"></div>
+      <span>UFC Champion / Former Champion</span>
+    </div>
+  </div>
 
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const button = document.querySelector('.theme-toggle');
-            if (body.style.backgroundColor === 'black') {
-                body.style.backgroundColor = '#ffffff';
-                body.style.color = '#000000';
-                button.textContent = '🌙';
-            } else {
-                body.style.backgroundColor = '#000000';
-                body.style.color = '#ffffff';
-                button.textContent = '☀️';
-            }
-        }
-    </script>
+  <div class="contact">
+    <p>Found a mistake or have suggestions? Contact me on Twitter/X: <a href="https://twitter.com/phre" style="color: #1DA1F2;">@phre</a></p>
+  </div>
+</div>
+
 </body>
 </html>
