@@ -20,34 +20,44 @@
             padding: 0;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
         }
+        img.header {
+            width: 300px;
+            height: auto;
+            margin: 20px 0;
+        }
         iframe {
             width: 100%;
-            height: 600px;
+            height: 650px;
             border: none;
-            margin-top: 10px;
-            margin-bottom: 50px;
+            margin: 30px 0;
+        }
+        h2 {
+            margin-top: 50px;
         }
         .legend {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 40px;
             margin-bottom: 20px;
         }
         .legend-item {
             display: flex;
             align-items: center;
-            margin: 5px 15px;
+            margin: 5px 20px;
+            font-size: 16px;
         }
         .legend-color {
-            width: 15px;
-            height: 15px;
-            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border: 1px solid #000;
         }
-        .white { background-color: white; border: 1px solid black; }
+        .white { background-color: white; }
         .red { background-color: red; }
         .green { background-color: green; }
         .theme-toggle {
@@ -59,18 +69,30 @@
             border: none;
             font-size: 24px;
         }
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     <div class="container">
         <h1>Regional Champions & DWCS record tracker</h1>
-        <img src="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/header.png" alt="Header" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+
+        <img src="https://raw.githubusercontent.com/phre2/dwcs-regional-tracker/refs/heads/main/header.png" alt="Header" class="header">
+
         <p>
             A few years ago, I started tracking how Regional MMA Champions perform in the UFC compared to DWCS winners.  
             This is the result. The site is completely free and available to everyone.  
             If you like it, follow me on Twitter/X <a href="https://twitter.com/phre" target="_blank">@phre</a>!
         </p>
+
+        <h2>Regional Champions</h2>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=1134166654&single=true"></iframe>
+
+        <h2>DWCS</h2>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=588391191&single=true"></iframe>
 
         <div class="legend">
             <div class="legend-item"><div class="legend-color white"></div> Still in UFC</div>
@@ -78,11 +100,7 @@
             <div class="legend-item"><div class="legend-color green"></div> UFC Champion / Former Champion</div>
         </div>
 
-        <h2>Regional Champions</h2>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=1134166654&single=true"></iframe>
-
-        <h2>DWCS</h2>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Q9DSRY4SwTAME6vCh_TzSuPkh5x7FUNDpFpL-u6r4r8W5uRGR1YE7MXoHLbTpz9zGnsTfYHWsSQu/pubhtml?gid=588391191&single=true"></iframe>
+        <p>If you spot any mistakes or have suggestions, feel free to contact me on Twitter/X <a href="https://twitter.com/phre" target="_blank">@phre</a>!</p>
     </div>
 
     <script>
